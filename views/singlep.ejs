@@ -1,0 +1,203 @@
+<% include partials/carth%>
+<header>
+  <script src=" https://code.jquery.com/jquery-3.5.0.min.js"></script>
+ 
+ <!-- Preloader Start -->
+ <div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="preloader-circle"></div>
+            <div class="preloader-img pere-text">
+                <img src="../../../assets/img/logo/logo.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Preloader Start -->
+
+
+<!-- Header Start -->
+<div class="header-area">
+    <div class="main-header ">
+        <div class="header-top top-bg d-none d-lg-block">
+           <div class="container-fluid">
+               <div class="col-xl-12">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="header-info-left d-flex">
+                            <div class="flag">
+                                <img src="../../../assets/img/icon/header_icon.png" alt="">
+                            </div>
+                            <div class="select-this">
+                                <form action="#">
+                                    <div class="select-itms">
+                                        <select name="select" id="select1">
+                                            <option value="">IND</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <ul class="contact-now">     
+                                <li>+91 8420316525</li>
+                            </ul>
+                        </div>
+                        <div class="header-info-right">
+                          <ul>                                              
+                              <li>  <a href="../../../user/welcome/product">Shop Now</a></li>
+                              <li><a href="../../../user/welcome/myac/<%= id %>">welcome <%= name %></a></li>
+                              <span id="span" hidden><%= id %></span>
+                          </ul>
+                        </div>
+                    </div>
+               </div>
+           </div>
+        </div>
+       <div class="header-bottom  header-sticky">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                        <div class="logo">
+                          <a href="../../../user/welcome"><img src="../../../assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                        <!-- Main-menu -->
+                        <div class="main-menu f-right d-none d-lg-block">
+                          <nav>                                                
+                              <ul id="navigation">                                                                                                                                     
+                                  <li><a href="/user/welcome">Home</a></li>
+                                  <li>Catagori
+                                    <ul class="submenu"> 
+                                      <li><a  class="filter"  href="filter/men" >men</a></li>
+                                      <li><a class="filter"  href="filter/women">women</a></li>
+                                      <li><a class="filter"  href="filter/kids">kids</a></li>  
+                                  </ul></li>
+                                  </li>
+                                  <li><a href="../../../user/welcome/myac/<%= id %>">My Account </a></li>
+                                  <li><a href="../../../user/welcome/contact">Contact</a></li>
+                                  <li>  <a href="../../../user/welcome/product">Shop Now</a></li>
+                                  <li><a href="../../../user/welcome/myord/<%= id %>">My orders</a></li>
+                              </ul>
+                          </nav>
+                        </div>
+                    </div> 
+                    <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
+                        <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                            <li class="d-none d-xl-block">
+                                <div class="form-box f-right ">
+                                    <input type="text" name="Search" placeholder="Search products">
+                                    <div class="search-icon">
+                                        <i class="fas fa-search special-tag"></i>
+                                    </div>
+                                </div>
+                             </li>
+                            <form action="/user/logout?_method=DELETE" method="POST">
+                              <button type="submit" class="btn ">Log Out</button> 
+                            </form> </ul>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+<!-- Header End -->
+</header>
+
+<main>
+            <!-- Nav Card -->
+            <div class="tab-content" id="nav-tabContent">
+                <!-- card one -->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div id="dyna" class="row padding-24 align-items-center justify-content-center " >
+                     
+            </div> 
+            
+<footer>
+
+   <!-- Footer Start-->
+   <div class="footer-area footer-padding">
+       <div class="container">
+           <div class="row d-flex justify-content-between">
+               <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                  <div class="single-footer-caption mb-50">
+                    <div class="single-footer-caption mb-30">
+                         <!-- logo -->
+                        <div class="footer-logo">
+                            <a href="/user/welcome"><img src="../../../assets/img/logo/logo2_footer.png" alt=""></a>
+                        </div>
+                        <div class="footer-tittle">
+                            <div class="footer-pera">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                           </div>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                   <div class="single-footer-caption mb-50">
+                       <div class="footer-tittle">
+                           <h4>Quick Links</h4>
+                           <ul>
+                               <li><a href="/user/welcome">About</a></li>
+                               <li><a href="/user/welcome"> Offers & Discounts</a></li>
+                               <li><a href="/user/welcome"> Get Coupon</a></li>
+                               <li><a href="/user/welcome">  Contact Us</a></li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                   <div class="single-footer-caption mb-50">
+                       <div class="footer-tittle">
+                           <h4>New Products</h4>
+                           <ul>
+                               <li><a href="/user/welcome">Woman Cloth</a></li>
+                               <li><a href="/user/welcome">Fashion Accessories</a></li>
+                               <li><a href="/user/welcome"> Man Accessories</a></li>
+                               <li><a href="/user/welcome"> Rubber made Toys</a></li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                   <div class="single-footer-caption mb-50">
+                       <div class="footer-tittle">
+                           <h4>Support</h4>
+                           <ul>
+                            <li><a href="/user/welcome">Frequently Asked Questions</a></li>
+                            <li><a href="/user/welcome">Terms & Conditions</a></li>
+                            <li><a href="/user/welcome">Privacy Policy</a></li>
+                            <li><a href="/user/welcome">Privacy Policy</a></li>
+                            <li><a href="/user/welcome">Report a Payment Issue</a></li>
+                        </ul>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <!-- Footer bottom -->
+           <div class="row">
+            <div class="col-xl-7 col-lg-7 col-md-7">
+                <div class="footer-copy-right">
+                                     </div>
+            </div>
+             <div class="col-xl-5 col-lg-5 col-md-5">
+                <div class="footer-copy-right f-right">
+                    <!-- social -->
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+   </div>
+</footer>
+   <!-- Footer End-->
+<% include partials/singlepf%>

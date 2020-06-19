@@ -1,0 +1,140 @@
+<script>
+    var e=document.getElementById('span').innerText;
+    console.log(e);
+    $(document).ready(()=>{
+    $.ajax({
+        metdod:'GET',
+        url: '/user/welcome/cart/data/'+e,   
+        dataType: 'json'
+        }).done((data) => {
+            console.log(data);
+                $.map(data, (post, i) =>{
+                $('#product').append(`<li>
+                  <a href='/user/welcome/singlep/${post.pid}'>${post.pname}
+                 <span class="last">₹${post.price}</span>
+                  </a>
+                </li>`);
+                });
+            })
+        });
+</script>
+
+<script type="text/javascript"> 
+    var w=localStorage.getItem('q') 
+    $('#amount').val(w);
+    $('#total').text('₹'+w);
+    var o=localStorage.getItem('o');
+    $('#txnid').val(o);
+     $(document).ready(()=>{
+        $.ajax({
+              url: '/user/welcome/checkout',
+              type: 'post',
+              data: JSON.stringify({ 
+                key: $('#key').val(),
+                salt: $('#salt').val(),
+                txnid: $('#txnid').val(),
+                amount: $('#amount').val(),
+                pinfo: $('#pinfo').val(),
+                fname: $('#fname').val(),
+                email: $('#email').val(),
+                mobile: $('#mobile').val(),
+                udf5: $('#udf5').val()
+              }),
+              contentType: "application/json",
+              dataType: 'json',
+              success: function(json) {            
+                $('#hash').val(json);            
+              }
+            }); 
+    });
+    
+    </script>
+    <script type="text/javascript">
+    function launchBOLT()
+    {
+        bolt.launch({
+        key: $('#key').val(),
+        txnid: $('#txnid').val(), 
+        hash: $('#hash').val(),
+        amount: $('#amount').val(),
+        firstname: $('#fname').val(),
+        email: $('#email').val(),
+        phone: $('#mobile').val(),
+        productinfo: $('#pinfo').val(),
+        udf5: $('#udf5').val(),
+        surl : $('#surl').val(),
+        furl: $('#surl').val()
+    },{ responseHandler: function(BOLT){
+        console.log( BOLT.response.txnStatus );		
+        if(BOLT.response.txnStatus != 'CANCEL')
+        {
+            //Salt is passd here for demo purpose only. For practical use keep salt at server side only.
+            var fr = '<form action=\"'+$('#surl').val()+'\" method=\"post\">' +
+            '<input type=\"hidden\" name=\"key\" value=\"'+BOLT.response.key+'\" />' +
+            '<input type=\"hidden\" name=\"salt\" value=\"'+$('#salt').val()+'\" />' +
+            '<input type=\"hidden\" name=\"txnid\" value=\"'+BOLT.response.txnid+'\" />' +
+            '<input type=\"hidden\" name=\"amount\" value=\"'+BOLT.response.amount+'\" />' +
+            '<input type=\"hidden\" name=\"productinfo\" value=\"'+BOLT.response.productinfo+'\" />' +
+            '<input type=\"hidden\" name=\"firstname\" value=\"'+BOLT.response.firstname+'\" />' +
+            '<input type=\"hidden\" name=\"email\" value=\"'+BOLT.response.email+'\" />' +
+            '<input type=\"hidden\" name=\"udf5\" value=\"'+BOLT.response.udf5+'\" />' +
+            '<input type=\"hidden\" name=\"mihpayid\" value=\"'+BOLT.response.mihpayid+'\" />' +
+            '<input type=\"hidden\" name=\"status\" value=\"'+BOLT.response.status+'\" />' +
+            '<input type=\"hidden\" name=\"hash\" value=\"'+BOLT.response.hash+'\" />' +
+            '</form>';
+            var form = jQuery(fr);
+            jQuery('body').append(form);								
+            form.submit();
+        }
+    },
+        catchException: function(BOLT){
+             alert( BOLT.message );
+        }
+    });
+    }
+    </script>
+    </div>
+
+
+     
+    <!-- JS here -->
+    
+        <!-- All JS Custom Plugins Link Here here -->
+        <script src="../../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <!-- Jquery, Popper, Bootstrap -->
+        <script src="../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../../assets/js/popper.min.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
+        <!-- Jquery Mobile Menu -->
+        <script src="../../assets/js/jquery.slicknav.min.js"></script>
+    
+        <!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="../../assets/js/owl.carousel.min.js"></script>
+        <script src="../../assets/js/slick.min.js"></script>
+    
+        <!-- One Page, Animated-HeadLin -->
+        <script src="../../assets/js/wow.min.js"></script>
+        <script src="../../assets/js/animated.headline.js"></script>
+        <script src="../../assets/js/jquery.magnific-popup.js"></script>
+    
+        <!-- Scrollup, nice-select, sticky -->
+        <script src="../../assets/js/jquery.scrollUp.min.js"></script>
+        <script src="../../assets/js/jquery.nice-select.min.js"></script>
+        <script src="../../assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        
+        <script src="../../assets/js/jquery.form.js"></script>
+        <script src="../../assets/js/jquery.validate.min.js"></script>
+        <script src="../../assets/js/mail-script.js"></script>
+        <script src="../../assets/js/jquery.ajaxchimp.min.js"></script>
+        
+        <!-- Jquery Plugins, main Jquery -->	
+        <script src="../../assets/js/plugins.js"></script>
+        <script src="../../assets/js/main.js"></script>
+        
+    </body>
+    
+    <script src=" https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    </body>
+    </html>	

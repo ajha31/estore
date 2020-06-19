@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PayUmoney BOLT NODE.JS Kit</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- this meta viewport is required for BOLT //-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+<!-- BOLT Sandbox/test //-->
+<script id="bolt" src="https://sboxcheckout-static.citruspay.com/bolt/run/bolt.min.js" bolt-
+color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/Bolt-Logo-e14421724859591.png"></script>
+<!-- BOLT Production/Live //-->
+<!--// script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/Bolt-Logo-e14421724859591.png"></script //-->
+<% include partials/allph %>
+</head>
+
+<body>
+<header>
+	<div class="header-area">
+        <div class="main-header ">
+            <div class="header-top top-bg d-none d-lg-block">
+               <div class="container-fluid">
+                   <div class="col-xl-12">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="header-info-left d-flex">
+                                <div class="flag">
+                                     <img src="../../../../assets/img/icon/header_icon.png" alt="">
+                                </div>
+                                <div class="select-this">
+                                    <form action="#">
+                                        <div class="select-itms">
+                                            <select name="select" id="select1">
+                                                <option value="">IND</option>
+                                               
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <ul class="contact-now">     
+                                    <li>+91 8420316525</li>
+                                </ul>
+                            </div>
+                            <div class="header-info-right">
+                                <ul>                                              
+                                    <li><a href="../../user/welcome/product">Shop now</a></li>
+                                    <li><a href="../../user/welcome/cart/<%= id %>">Cart</a></li>
+                                    <li><a href="../../user/welcome/myac/<%= id %>">welcome <%= name %></a></li>
+                                    <span id="span" hidden><%= id %></span>
+                                </ul>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+		</div>
+</div>
+</header>
+			
+
+<div class="main">
+<form action="#" id="payment_form"  >
+    <input type="hidden" id="udf5" name="udf5" value="<%= address%>" >
+    <input type="hidden" id="surl" name="surl" value="http://localhost:5000/user/welcome/response" />
+ 	<input type="hidden" id="key"  name="key"  value="pq4sP02t" />
+ 	<input type="hidden" id="salt" name="salt"  value="VBvtcHZmYy" />
+ 	<input type="hidden" id="hash" name="hash"  value=" " />
+	<input type="hidden" id="amount" name="amount" value=" "  />
+	<input type="hidden" id="txnid" name="txnid"  value="" />
+	<input type="hidden" id="fname" name="fname"  value="<%= name %>" />
+	<input type="hidden" id="email" name="email"  value="<%= email %>" />
+	<input type="hidden" id="pinfo" name="pinfo"  value="product" />
+	<input type="hidden" id="mobile" name="mobile"  value="<%= mobile %>" />
+	
+    
+  <div id="alertinfo" class="dv"></div>
+<div style=" padding-top: 2em;">
+	<center><h5> check-OUT with  <img src="../../images/payumoney.png" /></h5></center>
+</div>
+
+<div class="billing_details" style="padding-top: 4em;" >
+	<div class="row justify-content-center">
+	  <div class="col-lg-5" >
+		<form action="../../../user/welcome/myac/<%= id %>" method="get">
+			<ul style="padding-top: 2em; ">
+			   <h4>NAME:-<li id="fname" style="display: inline-block;"><%=name %></li></h4>
+				<h4>EMAIL:-<li id="email" style="display: inline-block;"><%=email %></li></h4>
+				<h4>ADDRESS:-<li id="address"style="display: inline-block;"><%=address %></li></h4>
+				<h4>MOBILE:-<li style="padding-bottom: 1em;display: inline-block;" id="mobile"><%=mobile%></li></h4>
+				<li><input type="submit" value="edit details" class="btn_1"></li>
+			</ul>
+		   </form>
+		</div>
+
+		<div class="col-lg-4" style="background-color: blue;">
+			<div class="order_box">
+				<ul class="list">
+                <li>
+                  <a href="#">Product
+                    <span>price</span>
+                  </a>
+				</li>
+				<div id="product">
+					
+				</div>
+				<li>
+					<a href="#">Total:-
+					  <span id="total"></span>
+					</a>
+				  </li>
+				</ul>
+			<div><input type="submit" class="btn_1" value="Pay" onclick="launchBOLT(); return false;" /></div>
+		</div>
+		</div>
+</div>
+</div>
+</form>
+<% include partials/checkoutf %>
+
+</body>
+</html>
+	
