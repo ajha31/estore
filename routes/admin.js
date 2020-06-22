@@ -7,7 +7,6 @@ const methodOverride = require('method-override')
 var path = require('path');
 var multer=require('multer')
 const initializePassport = require('../passport-config')
-const $=require('jquery');
 const connection=require('../connection');
 
 initializePassport(passport)
