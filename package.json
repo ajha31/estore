@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "ajax": "0.0.4",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "cookie": "^0.4.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
